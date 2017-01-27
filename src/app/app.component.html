@@ -1,3 +1,20 @@
-<h1>
-  {{title}}
-</h1>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <a data-toggle="collapse" data-parent="#accordion" href="#filteredItemsList">
+        <span class="glyphicon glyphicon-th-list"></span>
+        <span>OpenHab Items</span>
+      </a>
+    </h3>
+  </div>
+  <div id="filteredItemsList" class="panel-body panel-collapse collapse in">
+    OpenHAB URL: <input type="text" [(ngModel)]="openhabUrl">
+    <button (click)="getItems()">Get Items List</button>
+    <input type="checkbox" [(ngModel)]="isGroupOnly" (ngModelChange)="onisGroupOnlyChange($event)"> Show only group items<br/>
+    <em *ngIf="isGroupOnly">Showing group items only</em>
+    <em *ngIf="!isGroupOnly">Showing all items</em><br/>
+    <div *ngFor="let item of filteredItemsList">
+      <label><input type="checkbox" [(ngModel)]="item.isInclude">{{item.name}}</label>
+    </div>
+  </div>
+</div>

@@ -2,6 +2,7 @@
 
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import * as _ from 'underscore';
 
 describe('AppComponent', () => {
   beforeEach(() => {
